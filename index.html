@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EduFun - media pembelajaran pecahan interaktif untuk siswa sekolah dasar.">
+  <title>EduFun — Petualangan Pecahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="EduFun Beranda">
+        <span class="brand-mark">½</span><span>Edu<span class="brand-accent">Fun</span><small>Petualangan Pecahan</small></span>
+      </a>
+      <div class="nav-label">MENU BELAJAR</div>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <button class="nav-link active" data-page="home"><span>⌂</span> Beranda</button>
+        <button class="nav-link" data-page="materials"><span>▤</span> Materi</button>
+        <button class="nav-link" data-page="games"><span>✦</span> Petualangan</button>
+        <button class="nav-link" data-page="quiz"><span>☑</span> Kuis</button>
+        <button class="nav-link" data-page="progress"><span>▥</span> Progres Belajar</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-tip"><span class="tip-icon">💡</span><b>Tips hari ini</b><p>Belajar sedikit demi sedikit setiap hari membuatmu semakin hebat!</p></div>
+        <button class="nav-link" data-page="profile"><span>☺</span> Profil Saya</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb">Ruang Belajar <span>/</span> <b id="pageLabel">Beranda</b></div>
+        <div class="top-actions"><span class="streak">🔥 <b id="streakCount">1</b> hari</span><div class="avatar">🧑‍🎓</div></div>
+      </header>
+
+      <div class="content">
+        <!-- BERANDA -->
+        <section class="page active" id="page-home">
+          <div class="welcome-row">
+            <div><p class="eyebrow">SELAMAT DATANG DI EDUFUN</p><h1>Halo, <span id="greetingName">Pejuang Pecahan</span>! 👋</h1><p class="muted">Siap belajar sambil bermain hari ini?</p></div>
+            <div class="date-pill">🌈 Semangat belajar!</div>
+          </div>
+          <div class="hero">
+            <div class="hero-copy"><span class="hero-tag">🚀 MISI BELAJAR HARI INI</span><h2>Yuk, taklukkan<br> dunia pecahan!</h2><p>Kenali angka, pecahkan tantangan, dan kumpulkan bintang belajarmu.</p><button class="btn btn-light" data-go="materials">Mulai belajar <span>→</span></button></div>
+            <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="fraction-card"><b>1</b><i></i><b>2</b></div><div class="pie">◕</div><div class="sparkle s1">✦</div><div class="sparkle s2">✧</div><div class="hero-orbit"></div></div>
+          </div>
+          <div class="section-heading"><div><p class="eyebrow">RINGKASAN</p><h2>Perjalanan belajarmu</h2></div><button class="text-btn" data-go="progress">Lihat progres →</button></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-icon purple">★</div><div><span>Total bintang</span><strong id="starTotal">0</strong><small>Terus kumpulkan!</small></div></article>
+            <article class="stat-card"><div class="stat-icon yellow">▣</div><div><span>Materi selesai</span><strong id="materialTotal">0/6</strong><small>Langkah demi langkah</small></div></article>
+            <article class="stat-card"><div class="stat-icon green">✓</div><div><span>Kuis dikerjakan</span><strong id="quizTotal">0</strong><small>Berani mencoba!</small></div></article>
+          </div>
+          <div class="section-heading"><div><p class="eyebrow">LANJUTKAN PETUALANGAN</p><h2>Pilih kegiatanmu</h2></div></div>
+          <div class="activity-grid">
+            <article class="activity-card activity-purple"><div class="activity-emoji">📚</div><div><h3>Belajar Materi</h3><p>Pahami pecahan dari dasar dengan gambar.</p><button class="text-btn" data-go="materials">Buka materi →</button></div></article>
+            <article class="activity-card activity-yellow"><div class="activity-emoji">🧩</div><div><h3>Main Tantangan</h3><p>Uji kemampuanmu lewat permainan seru.</p><button class="text-btn" data-go="games">Main sekarang →</button></div></article>
+            <article class="activity-card activity-green"><div class="activity-emoji">🏆</div><div><h3>Kerjakan Kuis</h3><p>Jawab soal dan raih bintang sebanyaknya.</p><button class="text-btn" data-go="quiz">Mulai kuis →</button></div></article>
+          </div>
+        </section>
+
+        <!-- MATERI -->
+        <section class="page" id="page-materials">
+          <div class="page-intro"><p class="eyebrow">BELAJAR DARI DASAR</p><h1>Materi Pecahan 📚</h1><p class="muted">Pilih materi yang ingin kamu pelajari. Baca, amati, lalu tandai selesai.</p></div>
+          <div class="lesson-layout"><div class="lesson-list" id="lessonList"></div><article class="lesson-view card" id="lessonView"><div class="empty-state"><div>📖</div><h3>Pilih materi di sebelah kiri</h3><p>Petualangan belajarmu dimulai dari sini.</p></div></article></div>
+          <div class="card visualizer"><div><p class="eyebrow">COBA SENDIRI</p><h2>Studio Visual Pecahan 🎨</h2><p class="muted">Atur jumlah bagian dan warnai beberapa bagian untuk melihat bentuk pecahannya.</p></div><div class="visualizer-controls"><label>Jumlah seluruh bagian <select id="wholeParts"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select></label><label>Bagian diwarnai <input id="coloredParts" type="range" min="0" max="4" value="1"></label><div class="visual-result"><div id="fractionShape" class="fraction-shape"></div><div><strong id="fractionText">1/4</strong><p id="fractionExplain" class="muted">Satu dari empat bagian diwarnai.</p></div></div></div></div>
+        </section>
+
+        <!-- GAME -->
+        <section class="page" id="page-games">
+          <div class="page-intro"><p class="eyebrow">BELAJAR SAMBIL BERMAIN</p><h1>Petualangan Pecahan 🧩</h1><p class="muted">Selesaikan tantangan sederhana dan kumpulkan bintang.</p></div>
+          <div class="game-card card"><div class="game-top"><span class="game-badge">TANTANGAN 01</span><span class="muted" id="gameScore">Bintang: 0</span></div><div class="game-content"><div class="game-illustration">🍕</div><div><h2>Berapa bagian yang diarsir?</h2><p class="muted">Bayangkan pizza dibagi menjadi empat bagian sama besar. Dua bagian diarsir.</p><div class="pizza-demo"><span>◕</span></div><div class="answer-options" id="gameOptions"><button data-answer="1/4">1/4</button><button data-answer="2/4">2/4</button><button data-answer="3/4">3/4</button><button data-answer="4/4">4/4</button></div><p id="gameFeedback" class="feedback" aria-live="polite"></p><button class="btn btn-primary" id="nextGame" hidden>Soal berikutnya →</button></div></div></div>
+        </section>
+
+        <!-- KUIS -->
+        <section class="page" id="page-quiz">
+          <div class="page-intro"><p class="eyebrow">UJI PEMAHAMANMU</p><h1>Kuis Pecahan ☑</h1><p class="muted">Jawab pertanyaan dengan teliti. Setiap jawaban benar bernilai 10 poin.</p></div>
+          <div class="quiz-wrap card"><div class="quiz-meta"><span id="questionNumber">PERTANYAAN 1 DARI 5</span><span id="quizPoints">⭐ 0 poin</span></div><div class="progress-track"><div id="quizProgress" class="progress-fill"></div></div><div id="quizArea"><h2 id="questionText">Berapa hasil dari 1/2 + 1/2?</h2><div id="quizChoices" class="quiz-choices"></div><p id="quizFeedback" class="feedback" aria-live="polite"></p><button class="btn btn-primary" id="submitAnswer" disabled>Periksa jawaban</button><button class="btn btn-primary" id="nextQuestion" hidden>Lanjut →</button></div><div id="quizResult" class="quiz-result" hidden></div></div>
+        </section>
+
+        <!-- PROGRES -->
+        <section class="page" id="page-progress">
+          <div class="page-intro"><p class="eyebrow">KAMU HEBAT!</p><h1>Progres Belajar 📈</h1><p class="muted">Lihat semua pencapaian yang sudah kamu kumpulkan.</p></div>
+          <div class="stats-grid"><article class="stat-card"><div class="stat-icon purple">★</div><div><span>Total bintang</span><strong id="progressStars">0</strong></div></article><article class="stat-card"><div class="stat-icon green">✓</div><div><span>Materi selesai</span><strong id="progressMaterials">0/6</strong></div></article><article class="stat-card"><div class="stat-icon yellow">☑</div><div><span>Kuis selesai</span><strong id="progressQuizzes">0</strong></div></article></div>
+          <article class="card progress-card"><h2>Materi yang sudah dipelajari</h2><div id="progressLessonList"></div></article>
+          <article class="card progress-card"><h2>Riwayat kuis</h2><div id="quizHistory" class="history-list"><p class="muted">Belum ada kuis yang diselesaikan. Yuk coba kuis pertamamu!</p></div></article>
+        </section>
+
+        <!-- PROFIL -->
+        <section class="page" id="page-profile">
+          <div class="page-intro"><p class="eyebrow">AKUN BELAJARMU</p><h1>Profil Saya ☺</h1><p class="muted">Atur nama panggilan agar pengalaman belajar terasa lebih dekat.</p></div>
+          <div class="card profile-card"><div class="profile-avatar">🧑‍🎓</div><h2>Profil Pejuang Pecahan</h2><label for="studentName">Nama panggilan</label><input id="studentName" type="text" maxlength="24" placeholder="Masukkan nama kamu"><button class="btn btn-primary" id="saveProfile">Simpan profil</button><p id="profileFeedback" class="feedback"></p><p class="muted small">Data profil dan progres disimpan di browser perangkat ini.</p></div>
+        </section>
+
+        <footer class="footer">© 2026 EduFun — Belajar pecahan jadi menyenangkan ✨</footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
